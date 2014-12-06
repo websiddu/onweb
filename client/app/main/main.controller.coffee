@@ -2,21 +2,24 @@
 
 angular.module 'sociallinkApp'
 .controller 'MainCtrl', ($scope, $http, socket) ->
-  $scope.awesomeThings = []
+  $scope.awesomeLinks = []
 
-  $http.get('/api/things').success (awesomeThings) ->
-    $scope.awesomeThings = awesomeThings
-    socket.syncUpdates 'thing', $scope.awesomeThings
+  $http.get('/api/links').success (awesomeLinks) ->
+    $scope.awesomeLinks = awesomeLinks
+    socket.syncUpdates 'link', $scope.awesomeLinks
 
   $scope.addThing = ->
     return if $scope.newThing is ''
-    $http.post '/api/things',
+    $http.post '/api/links',
       name: $scope.newThing
+      link: "String"
+      icon: "String"
+      handle: "String"
 
     $scope.newThing = ''
 
-  $scope.deleteThing = (thing) ->
-    $http.delete '/api/things/' + thing._id
+  $scope.deleteThing = (link) ->
+    $http.delete '/api/links/' + link._id
 
   $scope.$on '$destroy', ->
-    socket.unsyncUpdates 'thing'
+    socket.unsyncUpdates 'link'
