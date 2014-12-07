@@ -6,10 +6,16 @@
     <div ng-include="'components/sidebar/sidebar.html'"></div>
     <div class="col-lg-9">
       <h3 class="page-header">Your Links</h3>
-
-      <ul class="list-unstyled" ng-repeat="link in awesomeLinks">
+      <ul class="list-unstyled">
         <li>
+          <em class="icon icon-facebook"></em>
+          Facebook
+          <span>http://facebook.com/websiddu</span>
+          <span>Siddhartha Gudipati </span>
+        </li>
+        <li ng-repeat="link in awesomeLinks">
           {{link.service}} - {{link.name}} - {{link.handle}}
+          <button type="button" class="close" ng-click="deleteThing(link)">&times;</button>
           <!-- <a href="#" tooltip="{{link.info}}">{{thing}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a> -->
         </li>
       </ul>

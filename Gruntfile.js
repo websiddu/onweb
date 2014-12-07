@@ -54,7 +54,14 @@ module.exports = function (grunt) {
         url: 'http://localhost:<%= express.options.port %>'
       }
     },
+
     watch: {
+
+      webfont: {
+        files: ['<%= yeoman.client %>/assets/fonts/icons/*.svg'],
+        tasks: ['webfont:icons']
+      },
+
       injectJS: {
         files: [
           '<%= yeoman.client %>/{app,components}/**/*.js',
@@ -253,6 +260,28 @@ module.exports = function (grunt) {
         }
       }
     },
+
+
+      webfont: {
+        icons: {
+          src: '<%= yeoman.client %>/assets/fonts/icons/*.svg',
+          dest: '<%= yeoman.client %>/assets/fonts/',
+          destCss: '<%= yeoman.client %>/app/common/',
+          syntax: 'bootstrap',
+
+          options: {
+            stylesheet: 'less',
+            relativeFontPath: '../assets/fonts/',
+            destHtml: '<%= yeoman.client %>/assets/fonts/',
+            font: 'icons',
+            hashes: false,
+            templateOptions: {
+              classPrefix: 'icon-'
+            }
+          },
+
+        }
+      },
 
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
