@@ -1,3 +1,7 @@
+body {
+  font-weight: 300;
+}
+
 .navbar-brand {
   margin-right: 20px;
 }
@@ -6,11 +10,48 @@
   max-width: 1000px;
 }
 
-.sl-page {
-  background-color: #fff;
-  min-height: 100%;
+.sl-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(200, 200, 200, 0.5);
+  &.lg {
+    padding: 30px 40px;
+  }
 }
 
+.sl-heading {
+  margin: 0;
+  font-weight: 300;
+  margin-bottom: 15px;
+  font-size: 30px;
+  color: @brand-danger;
+}
+
+.sl-link {
+  .sl-icon {
+    font-size: 24px;
+    color: @brand-primary;
+  }
+  .sl-service {
+    font-size: 16px;
+    line-height: 24px;
+    margin-right: 20px;
+  }
+  .sl-service-link {
+    font-size: 14px;
+    font-family: @font-family-monospace;
+    font-weight: 200;
+    margin-right: 20px;
+    span {
+      color: #888;
+    }
+  }
+}
+
+.sl-link-edit {
+  margin: 40px 0;
+}
 
 .footer {
   background-color: #a4c7e8;

@@ -5,14 +5,48 @@
   <div class="row">
     <div ng-include="'components/sidebar/sidebar.html'"></div>
     <div class="col-lg-9">
-      <h3 class="page-header">Your Links</h3>
+      <div class="sl-section lg">
+      <h3 class="sl-heading">Your Links</h3>
       <ul class="list-unstyled">
         <li>
-          <em class="icon icon-facebook"></em>
-          Facebook
-          <span>http://facebook.com/websiddu</span>
-          <span>Siddhartha Gudipati </span>
+          <div class="sl-link">
+            <span class="sl-icon">
+              <em class="icon icon-facebook"></em>
+            </span>
+            <span class="sl-service">
+              Facebook
+            </span>
+            <span class="sl-service-link">
+              <span>http://facebook.com/</span>websiddu
+            </span>
+            <span class="sl-link-acitons">
+              <em class="icon icon-edit"></em>
+            </span>
+          </div>
         </li>
+        <li>
+          <div class="sl-link-edit">
+          <div class="row">
+            <div class="col-lg-4">
+            &nbsp;
+              <select name="" id="" class="form-control">
+                <option value="">Facebook</option>
+                <option value="">Twitter</option>
+                <option value="">Google</option>
+                <option value="">Blogpost</option>
+              </select>
+            </div>
+
+            <div class="col-lg-6">
+              <span>http://twitter.com/</span>
+              <input type="text" class="form-control">
+            </div>
+
+          </div>
+          </div>
+        </li>
+
+
         <li ng-repeat="link in awesomeLinks">
           {{link.service}} - {{link.name}} - {{link.handle}}
           <button type="button" class="close" ng-click="deleteThing(link)">&times;</button>
@@ -31,6 +65,7 @@
           </span>
         </p>
     </form>
+    </div>
     </div>
   </div>
 </div>
