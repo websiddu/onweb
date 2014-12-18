@@ -7,6 +7,7 @@ angular.module 'sociallinkApp', [
   'ngRoute',
   'btford.socket-io',
   'ui.bootstrap'
+  'ui.select2'
 ]
 .config ($routeProvider, $locationProvider, $httpProvider) ->
   $routeProvider

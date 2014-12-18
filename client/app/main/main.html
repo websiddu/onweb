@@ -1,75 +1,66 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
-
 <div class="container sl-page">
   <div class="row">
     <div ng-include="'components/sidebar/sidebar.html'"></div>
     <div class="col-lg-9">
       <div class="sl-section lg">
-      <h3 class="sl-heading">Your Links</h3>
-      <ul class="list-unstyled">
-        <li>
-          <div class="sl-link">
-            <span class="sl-icon">
+        <h3 class="sl-heading">Your Links</h3>
+        <ul class="list-unstyled">
+          <li>
+            <div class="sl-link">
+              <span class="sl-icon">
               <em class="icon icon-facebook"></em>
-            </span>
-            <span class="sl-service">
+              </span>
+              <span class="sl-service">
               Facebook
-            </span>
-            <span class="sl-service-link">
+              </span>
+              <span class="sl-service-link">
               <span>http://facebook.com/</span>websiddu
-            </span>
-            <span class="sl-link-acitons">
+              </span>
+              <span class="sl-link-acitons">
               <em class="icon icon-edit"></em>
-            </span>
-          </div>
-        </li>
-        <li>
-          <div class="sl-link-edit">
-          <div class="row">
-            <div class="col-lg-4">
-            &nbsp;
-              <select name="" id="" class="form-control">
-                <option value="">Facebook</option>
-                <option value="">Twitter</option>
-                <option value="">Google</option>
-                <option value="">Blogpost</option>
-              </select>
+              </span>
             </div>
-
-            <div class="col-lg-6">
-              <span>http://twitter.com/</span>
-              <input type="text" class="form-control">
+          </li>
+          <li>
+            <div class="sl-link-edit">
+              <div class="row">
+                <div class="col-lg-4">
+                  &nbsp;
+                  <select name="" id="" class="" style="width: 100%;" ui-select2="select2Options" ng-model="select2">
+                    <option value="">Facebook</option>
+                    <option value="">Twitter</option>
+                    <option value="">Google</option>
+                    <option value="">Blogpost</option>
+                  </select>
+                </div>
+                <div class="col-lg-6">
+                  <span>http://twitter.com/</span>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
             </div>
-
-          </div>
-          </div>
-        </li>
-
-
-        <li ng-repeat="link in awesomeLinks">
-          {{link.service}} - {{link.name}} - {{link.handle}}
-          <button type="button" class="close" ng-click="deleteThing(link)">&times;</button>
-          <!-- <a href="#" tooltip="{{link.info}}">{{thing}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a> -->
-        </li>
-      </ul>
-      <div class="clearfix"></div>
-
-
-      <form class="thing-form">
-        <label>Syncs in realtime across clients</label>
-        <p class="input-group">
+          </li>
+          <li ng-repeat="link in awesomeLinks">
+            {{link.service}} - {{link.name}} - {{link.handle}}
+            <button type="button" class="close" ng-click="deleteThing(link)">&times;</button>
+            <!-- <a href="#" tooltip="{{link.info}}">{{thing}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a> -->
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+        <form class="thing-form">
+          <label>Syncs in realtime across clients</label>
+          <p class="input-group">
           <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
           <span class="input-group-btn">
-            <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
+          <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
           </span>
-        </p>
-    </form>
-    </div>
+          </p>
+        </form>
+      </div>
     </div>
   </div>
 </div>
-
 <footer class="footer">
   <div class="container">
     <p class="text-center">All right reserved &copy; 2014</p>
