@@ -28,25 +28,48 @@ body {
   color: @brand-danger;
 }
 
+.sl-list li {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-bottom: solid 1px #eee;
+}
+
 .sl-link {
   .sl-icon {
-    font-size: 24px;
+    font-size: 20px;
     color: @brand-primary;
+    line-height: 40px;
+    height: 40px;
+    display: inline-block;
   }
   .sl-service {
     font-size: 16px;
     line-height: 24px;
     margin-right: 20px;
+    margin-left: 10px;
+    font-weight: 500;
   }
   .sl-service-link {
     font-size: 14px;
     font-family: @font-family-monospace;
     font-weight: 200;
     margin-right: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    display: inline-block;
+    width: 90%;
     span {
       color: #888;
     }
   }
+}
+
+.dragholder {
+  width: 10px;
+  display: inline-block;
+  margin-right: 30px;
+  vertical-align: text-bottom;
 }
 
 .sl-link-edit {

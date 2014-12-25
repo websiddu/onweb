@@ -2,30 +2,130 @@
 <div class="container sl-page">
   <div class="row">
     <div ng-include="'components/sidebar/sidebar.html'"></div>
-    <div class="col-lg-9">
+    <div class="col-lg-9 col-sm-9">
       <div class="sl-section lg">
         <h3 class="sl-heading">Your Links</h3>
-        <ul class="list-unstyled">
-          <li>
+        <ul class="list-unstyled sl-list">
+          <li class="row">
             <div class="sl-link">
-              <span class="sl-icon">
-              <em class="icon icon-facebook"></em>
-              </span>
-              <span class="sl-service">
-              Facebook
-              </span>
-              <span class="sl-service-link">
-              <span>http://facebook.com/</span>websiddu
-              </span>
-              <span class="sl-link-acitons">
-              <em class="icon icon-edit"></em>
-              </span>
+              <div class="col-lg-4 col-sm-4">
+                <span class="dragholder">
+                  <img src="assets/images/draghandle.svg" alt="">
+                </span>
+                <span class="sl-icon">
+                  <em class="icon icon-facebook"></em>
+                </span>
+                <span class="sl-service">
+                  Facebook
+                </span>
+              </div>
+
+              <div class="col-lg-7 col-sm-7 pull-right">
+                <span class="sl-service-link">
+                  <span>https://facebook.com/</span>websiddu
+                </span>
+              </div>
+              <div class="col-lg-1 col-sm-1">
+                <span class="sl-link-acitons">
+                  <em class="icon icon-edit"></em>
+                </span>
+              </div>
             </div>
           </li>
+
+
+          <li class="row">
+            <div class="sl-link">
+              <div class="col-lg-4 col-sm-4">
+                <span class="dragholder">
+                  <img src="assets/images/draghandle.svg" alt="">
+                </span>
+                <span class="sl-icon">
+                  <em class="icon icon-twitter"></em>
+                </span>
+                <span class="sl-service">
+                  Twitter
+                </span>
+              </div>
+
+              <div class="col-lg-7 col-sm-7 pull-right">
+                <span class="sl-service-link">
+                  <span>https://twitter.com/</span>websiddu
+                </span>
+              </div>
+              <div class="col-lg-1 col-sm-1">
+                <span class="sl-link-acitons">
+                  <em class="icon icon-edit"></em>
+                </span>
+              </div>
+            </div>
+          </li>
+
+
+
+          <li class="row">
+            <div class="sl-link">
+              <div class="col-lg-4 col-sm-4">
+                <span class="dragholder">
+                  <img src="assets/images/draghandle.svg" alt="">
+                </span>
+                <span class="sl-icon">
+                  <em class="icon icon-linkedin"></em>
+                </span>
+                <span class="sl-service">
+                  Linkedin
+                </span>
+              </div>
+
+              <div class="col-lg-7 col-sm-7 pull-right">
+                <span class="sl-service-link">
+                  <span>https://linkedin.com/in/</span>websiddu
+                </span>
+              </div>
+              <div class="col-lg-1 col-sm-1">
+                <span class="sl-link-acitons">
+                  <em class="icon icon-edit"></em>
+                </span>
+              </div>
+            </div>
+          </li>
+
+
+
+          <li class="row">
+            <div class="sl-link">
+              <div class="col-lg-4 col-sm-4">
+                <span class="dragholder">
+                  <img src="assets/images/draghandle.svg" alt="">
+                </span>
+                <span class="sl-icon">
+                  <em class="icon icon-behance"></em>
+                </span>
+                <span class="sl-service">
+                  Behance
+                </span>
+              </div>
+
+              <div class="col-lg-7 col-sm-7 pull-right">
+                <span class="sl-service-link">
+                  <span>https://behance.com/</span>websiddu
+                </span>
+              </div>
+              <div class="col-lg-1 col-sm-1">
+                <span class="sl-link-acitons">
+                  <em class="icon icon-edit"></em>
+                </span>
+              </div>
+            </div>
+          </li>
+
+
+
+
           <li>
             <div class="sl-link-edit">
               <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-sm-4">
                   &nbsp;
                   <select name="" id="" class="" style="width: 100%;" ui-select2="select2Options" ng-model="select2">
                     <option value="">Facebook</option>
@@ -35,7 +135,7 @@
                     <option value="">Dribbble</option>
                   </select>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-sm-6">
                   <span>http://twitter.com/</span>
                   <input type="text" class="form-control">
                 </div>
