@@ -1,0 +1,66 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container sl-page">
+  <div class="row">
+    <div ng-include="'components/sidebar/sidebar.html'"></div>
+    <div class="col-lg-9 col-sm-9">
+      <div class="sl-section lg">
+        <h3 class="sl-heading">Services</h3>
+        <div class="clearfix"></div>
+
+        <form ng-submit="addNewService()">
+          <p class="form-group">
+            <label for="">Service Name</label>
+            <input required='true' type="text" class="form-control" ng-model="serviceName">
+          </p>
+          <p class="form-group">
+            <label for="">URL</label>
+            <input required='true' type="url" class="form-control" ng-model="serviceURL">
+          </p>
+          <p class="form-group">
+            <label for="">Icon</label>
+            <input required='true' type="text" class="form-control" ng-model="serviceIcon">
+          </p>
+         <div class="checkbox">
+            <label>
+              <input required='true' type="checkbox" ng-model="serviceStatus"> is active
+            </label>
+          </div>
+          <p>
+            <button class="btn btn-primary">Submit</button>
+          </p>
+        </form>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>icon</th>
+              <th>URL</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="service in services">
+              <td>{{$index + 1}}</td>
+              <td>{{service.name}}</td>
+              <td>{{service.icon}}</td>
+              <td>{{service.url}}</td>
+              <td>
+                <button class="btn btn-xs btn-info" ng-click="editService(service._id, $index)"> <em class="icon icon-pencil"></em></button>
+                &nbsp;&nbsp;&nbsp;
+                <button class="btn btn-xs btn-danger" ng-click="removeService(service._id, $index)"> <em class="icon icon-remove"></em></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="text-center">All right reserved &copy; 2014</p>
+  </div>
+</footer>

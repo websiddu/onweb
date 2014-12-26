@@ -2,6 +2,8 @@
 
 var _ = require('lodash');
 var Link = require('./link.model');
+var User = require('../user/user.model');
+var mongoose = require('mongoose');
 
 // Get list of links
 exports.index = function(req, res) {
@@ -41,6 +43,55 @@ exports.update = function(req, res) {
     });
   });
 };
+
+
+exports.updateuserlink = function(req, res) {
+  //if(req.body._id) { delete req.body._id; }
+
+  var userId = req.user._id;
+  var link = req.body.data;
+  console.log("link")
+  console.log(link)
+
+  var linkId = link._id || mongoose.Types.ObjectId();
+  delete link._id
+
+  Link.update({
+      _id: linkId
+    }, link, {
+      upsert: true
+    })
+    .exec(function(err, lnk) {
+      if(!_.contains(req.user.links, linkId)) {
+        User.findById(userId, function(err, usr){
+          usr.links.push(linkId)
+          usr.save(function(err, usr) {
+
+          })
+        });
+      }
+
+      link._id = linkId
+      return res.json(200, link);
+
+    });
+
+
+
+
+  // Link.findById(req.params.id, function (err, link) {
+  //   if (err) { return handleError(res, err); }
+  //   if(!link) { return res.send(404); }
+  //   var updated = _.merge(link, req.body);
+  //   updated.save(function (err) {
+  //     if (err) { return handleError(res, err); }
+  //     return res.json(200, link);
+  //   });
+  // });
+
+
+};
+
 
 // Deletes a link from the DB.
 exports.destroy = function(req, res) {

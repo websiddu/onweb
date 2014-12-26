@@ -15,6 +15,7 @@ var UserSchema = new Schema({
   hashedPassword: String,
   provider: String,
   salt: String,
+  links: [{ type: Schema.Types.ObjectId, ref: 'Link' }],
   facebook: {},
   twitter: {},
   google: {},
