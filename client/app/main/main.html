@@ -19,20 +19,16 @@
                   {{userservice.name}}
                 </span>
               </div>
-              <div class="col-lg-7 col-sm-7 pull-right">
-                <span class="sl-service-link">
-                  <form ng-submit="updateLink(userservice)">
-                    <input type="text" class="form-control" ng-model='userservice.fullurl' placeholder="{{userservice.url}}">
-                    <button class="btn btn-sm btn-success"> <em class="icon icon-check"></em></button>
+              <div class="col-lg-8 col-sm-8 pull-right">
+                <span class="sl-service-link noedit">
+                  <form ng-submit="updateLink(userservice)" class="form-inline">
+                    <input type="text" class="form-control" ng-model='userservice.url' placeholder="{{userservice.url}}">
+                    <button class="btn btn-sm btn-success"> <em class="icon icon-checkmark"></em></button>
                   </form>
-                  <!-- <span>{{userservice.url}}</span> -->
-
-                </span>
-              </div>
-              <div class="col-lg-1 col-sm-1">
-                <span class="sl-link-acitons">
-                  <em class="icon icon-edit"></em>
-                </span>
+<!--                   <span class="sl-url">
+                    {{userservice.url}}
+                  </span>
+ -->                </span>
               </div>
             </div>
           </li>

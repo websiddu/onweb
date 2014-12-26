@@ -50,8 +50,6 @@ exports.updateuserlink = function(req, res) {
 
   var userId = req.user._id;
   var link = req.body.data;
-  console.log("link")
-  console.log(link)
 
   var linkId = link._id || mongoose.Types.ObjectId();
   delete link._id
