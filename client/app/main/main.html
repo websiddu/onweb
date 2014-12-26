@@ -20,21 +20,12 @@
                 </span>
               </div>
               <div class="col-lg-8 col-sm-8 pull-right">
-                <span class="sl-service-link noedit">
-                  <form ng-submit="updateLink(userservice)" class="form-inline">
-                    <input type="text" class="form-control" ng-model='userservice.url' placeholder="{{userservice.url}}">
-                    <button class="btn btn-sm btn-success"> <em class="icon icon-checkmark"></em></button>
-                  </form>
-<!--                   <span class="sl-url">
-                    {{userservice.url}}
-                  </span>
- -->                </span>
+                <span class="sl-service-link">
+                     <a href="" class="service-url" onbeforesave="updateLink(userservice, $data)" editable-text="userservice.url">{{ userservice.url }}</a>
+                </span>
               </div>
             </div>
           </li>
-
-
-
 
           <li>
             <div class="sl-link-edit">

@@ -8,6 +8,7 @@ angular.module 'sociallinkApp', [
   'btford.socket-io',
   'ui.bootstrap'
   'ui.select2'
+  'xeditable'
 ]
 .config ($routeProvider, $locationProvider, $httpProvider) ->
   $routeProvider
@@ -33,8 +34,10 @@ angular.module 'sociallinkApp', [
 
     $q.reject response
 
-.run ($rootScope, $location, Auth) ->
+.run ($rootScope, $location, Auth, editableOptions) ->
   # Redirect to login if route requires auth and you're not logged in
+  editableOptions.theme = 'bs3';
+
   $rootScope.$on '$routeChangeStart', (event, next) ->
     Auth.isLoggedInAsync (loggedIn) ->
       $location.path "/login" if next.authenticate and not loggedIn

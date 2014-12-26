@@ -34,12 +34,12 @@ angular.module 'sociallinkApp'
         $scope.userservices[i].updateurl = "/api/links/u/#{findedlinks._id}"
       i++
 
-  $scope.updateLink = (service) ->
-    console.log service
+  $scope.updateLink = (service, data) ->
+    console.log data
 
     newService =
       name: service.name
-      url: service.fullurl
+      url: data
       icon: service.icon
       _id: service._id
 
@@ -53,6 +53,10 @@ angular.module 'sociallinkApp'
     .success (data, status) ->
       console.log data
 
+  $scope.getFocusedClass = (e) ->
+    setTimeout ->
+      $(e.target).addClass('active')
+    , 0
 
 
   $scope.addThing = ->
