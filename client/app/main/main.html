@@ -43,12 +43,12 @@
             </div>
           </li>
 
-          <li>
-            <div class="sl-link-edit">
-              <div class="row">
-                <div class="col-lg-4 col-sm-4">
-                  &nbsp;
-                  <select name="" id="" class="" style="width: 100%;" ui-select2="select2Options" ng-model="select2">
+          <li class="row">
+            <div class="sl-link">
+              <div class="col-lg-1 col-sm-1"></div>
+              <div class="col-lg-3 col-sm-3">
+
+                  <select name="" id="" class="" style="width: 100%" ui-select2="select2Options" ng-model="select2">
                     <option value="">Facebook</option>
                     <option value="">Twitter</option>
                     <option value="">Google</option>
@@ -56,29 +56,14 @@
                     <option value="">Dribbble</option>
                   </select>
                 </div>
-                <div class="col-lg-6 col-sm-6">
-                  <span>http://twitter.com/</span>
+                <div class="col-lg-8 col-sm-8">
                   <input type="text" class="form-control">
                 </div>
               </div>
             </div>
           </li>
-          <li ng-repeat="link in awesomeLinks">
-            {{link.service}} - {{link.name}} - {{link.handle}}
-            <button type="button" class="close" ng-click="deleteThing(link)">&times;</button>
-            <!-- <a href="#" tooltip="{{link.info}}">{{thing}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a> -->
-          </li>
         </ul>
         <div class="clearfix"></div>
-        <form class="thing-form">
-          <label>Syncs in realtime across clients</label>
-          <p class="input-group">
-          <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
-          <span class="input-group-btn">
-          <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
-          </span>
-          </p>
-        </form>
       </div>
     </div>
   </div>

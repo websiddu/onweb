@@ -5,4 +5,4 @@ angular.module 'sociallinkApp'
   $routeProvider.when '/service',
     templateUrl: 'app/service/service.html'
     controller: 'ServiceCtrl'
-    authenticate: true
+    #authenticate: true

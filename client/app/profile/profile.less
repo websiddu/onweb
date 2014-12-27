@@ -1,0 +1,38 @@
+.profile-picture {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 100%;
+  img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    padding: 5px;
+    border: solid 5px #ccc;
+  }
+}
+
+.profile-name {
+  text-align: center;
+}
+
+.profile-links-list {
+  margin-top: 40px;
+  text-align: center;
+  li {
+    margin-right: 30px;
+    display: inline-block;
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    em {
+      font-size: 40px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -3,8 +3,8 @@
   <ul class="list-unstyled sl-sidebar-nav">
     <li> <a href="">Links</a></li>
     <li> <a href="">Widgets</a></li>
-    <li> <a href="">Profile</a></li>
-    <li> <a href="">Settings</a></li>
+    <li ng-class="{active: isActive('/profile')}"> <a href="/profile">Profile</a></li>
+    <li ng-class="{active: isActive('/settings')}"> <a href="/settings">Settings</a></li>
   </ul>
   </div>
 </div>
