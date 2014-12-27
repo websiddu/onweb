@@ -8,7 +8,7 @@
         <ul class="list-unstyled sl-list">
           <li class="row" ng-repeat="userservice in userservices">
             <div class="sl-link">
-              <div class="col-lg-4 col-sm-4">
+              <div class="col-lg-3 col-sm-3">
                 <span class="dragholder">
                   <img src="assets/images/draghandle.svg" alt="">
                 </span>
@@ -19,11 +19,27 @@
                   {{userservice.name}}
                 </span>
               </div>
-              <div class="col-lg-8 col-sm-8 pull-right">
+              <div class="col-lg-9 col-sm-9 text-right">
                 <span class="sl-service-link">
-                  <a href="" class="service-url" tooltip-placement="right" tooltip="Click to edit!" tooltip-append-to-body="true" onbeforesave="updateLink(userservice, $data)" editable-text="userservice.url">{{ userservice.url }}</a>
-                </span>
+                  <a href="" class="service-url" tooltip-placement="right" tooltip="Click to edit!" tooltip-append-to-body="true" onbeforesave="updateLink(userservice, $data)" editable-text="userservice.url">{{ userservice.url }}
+                  </a>
+                  <a ng-href="{{userservice.url}}" target="_blank" tooltip-append-to-body="true"   tooltip="Take me to the page." class="external-link"><img src="assets/images/new_tab.svg" alt=""></a>
+                  <span class="btn-group link-settings" dropdown is-open="userservice.dropdown">
+                    <a href='' class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                      <em class="icon icon-angle-down"></em>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li class="divider"  ng-if="userservice.userhas"></li>
+                      <li  ng-if="userservice.userhas"><a href="" ng-click="removeLink(userservice, $index)">Remove</a></li>
+                    </ul>
+                  </span>
+
+                  </span>
               </div>
+
             </div>
           </li>
 

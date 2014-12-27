@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
 }
 
 .sl-section {
@@ -28,20 +28,52 @@ body {
   color: @brand-danger;
 }
 
-.sl-list li {
+.sl-list > li {
   padding-top: 12px;
   padding-bottom: 12px;
   border-bottom: solid 1px #eee;
 }
 
 .sl-link {
-  overflow: hidden;
   .sl-icon {
     font-size: 20px;
     color: #555;
     line-height: 40px;
     height: 40px;
     display: inline-block;
+  }
+
+  .link-settings {
+    margin-left: 10px;
+    margin-top: -3px;
+    > a {
+      color: #444;
+      text-decoration: none;
+      height: 20px;
+      width: 20px;
+      display: inline-block;
+      border-radius: 100%;
+      text-align: center;
+      em.icon {
+       line-height: 19px;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+
+    }
+  }
+
+  .btn-group.open .dropdown-toggle {
+    box-shadow: none;
+    background: @brand-success;
+    color: #fff;
+  }
+
+  .dropdown-menu {
+    text-align: left;
+    left: -70px;
   }
 
   button {
@@ -60,6 +92,8 @@ body {
     font-weight: 500;
   }
   .sl-service-link {
+    height: 40px;
+    display: block;
     a.service-url {
       font-family: @font-family-monospace;
       line-height: 40px;
@@ -67,9 +101,23 @@ body {
       color: #43434b;
       border: 0;
       text-align: right;
-      width: 100%;
       display: inline-block;
     }
+    .editable-wrap + .external-link {
+      display: none;
+    }
+
+    .editable-wrap ~ .link-settings {
+      display: none;
+    }
+
+    .external-link {
+      img {
+        margin-top: -5px;
+        margin-left: 6px;
+      }
+    }
+
     .editable-wrap {
       float: right;
     }

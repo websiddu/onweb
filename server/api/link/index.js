@@ -7,14 +7,14 @@ var auth = require('../../auth/auth.service');
 
 var router = express.Router();
 
-router.get('/', controller.index);
-router.get('/:id', controller.show);
-router.post('/', controller.create);
+router.get('/', auth.isAuthenticated(), controller.index);
+router.get('/:id', auth.isAuthenticated(), controller.show);
+router.post('/',  auth.isAuthenticated(),controller.create);
 router.put('/u', auth.isAuthenticated(), controller.updateuserlink);
 //router.post('/u/:id', controller.updateuserlink);
 //router.put('/:id', controller.update);
 //router.patch('/:id', controller.update);
-router.delete('/:id', controller.destroy);
+router.delete('/:id', auth.isAuthenticated(), controller.destroy);
 
 
 

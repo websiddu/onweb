@@ -10,8 +10,8 @@ angular.module 'sociallinkApp'
   #   $scope.awesomeLinks = awesomeLinks
   #   socket.syncUpdates 'link', $scope.awesomeLinks
 
-
-
+  $scope.removeLink = (service) ->
+    $http.delete '/api/links/' + service._id
 
   $scope.init = ->
     $http.get '/api/services'
@@ -31,7 +31,13 @@ angular.module 'sociallinkApp'
         )
       if (findedlinks)
         $scope.userservices[i] = findedlinks
+        $scope.userservices[i].userhas = true
         $scope.userservices[i].updateurl = "/api/links/u/#{findedlinks._id}"
+      else
+        $scope.userservices[i].userhas = false
+        $scope.userservices[i].updateurl = undefined
+
+      $scope.userservices[i].dropdown = false
       i++
 
   $scope.updateLink = (service, data) ->

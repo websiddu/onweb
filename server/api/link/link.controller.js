@@ -93,12 +93,25 @@ exports.updateuserlink = function(req, res) {
 
 // Deletes a link from the DB.
 exports.destroy = function(req, res) {
+
+  var userId = req.user._id;
+  var linkId = req.params.id;
+
   Link.findById(req.params.id, function (err, link) {
     if(err) { return handleError(res, err); }
     if(!link) { return res.send(404); }
     link.remove(function(err) {
       if(err) { return handleError(res, err); }
-      return res.send(204);
+
+      if(!_.contains(req.user.links, linkId)) {
+        User.findById(userId, function(err, usr){
+          usr.links = _.remove(usr.links, linkId)
+          usr.save(function(err, usr) {
+            return res.send(204);
+          })
+        });
+      }
+
     });
   });
 };
