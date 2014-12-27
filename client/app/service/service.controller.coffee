@@ -7,18 +7,32 @@ angular.module 'sociallinkApp'
   .success (services) ->
     $scope.services = services
 
-  $scope.addNewService = (e) ->
-    newSer =
-      name: $scope.serviceName
-      url: $scope.serviceURL
-      icon: $scope.serviceIcon
-      status: $scope.scopeStatus
 
-    $http.post('/api/services', newSer)
-      .success (data, status) ->
-        newSer._id = data._id
-        $scope.services.push(newSer)
-        _resetForm()
+  # $scope.addUser = function() {
+  #   $scope.inserted = {
+  #     id: $scope.users.length+1,
+  #     name: '',
+  #     status: null,
+  #     group: null
+  #   };
+  #   $scope.users.push($scope.inserted);
+  # };
+
+  $scope.saveService = (data, id) ->
+    $http.put("/api/services/#{id}", data)
+      .success (dt, status) ->
+        # $scope.services[id]._id = dt._id
+
+  $scope.addNewService = (e) ->
+    $scope.newSer =
+      name: null
+      url: null
+      icon: null
+      status: null
+    $http.post('/api/services', $scope.newSer)
+      .success (dt, status) ->
+        $scope.newSer._id = dt._id
+        $scope.services.push($scope.newSer)
 
   _resetForm = ->
     $scope.serviceName = null
@@ -26,7 +40,7 @@ angular.module 'sociallinkApp'
     $scope.serviceIcon = null
     $scope.scopeStatus = false
 
-  $scope.removeService = (service, index) ->
+  $scope.removeService = (index, service) ->
     $http
       method: 'DELETE'
       url: "/api/services/#{service}"

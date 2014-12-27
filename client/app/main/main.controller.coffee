@@ -11,7 +11,11 @@ angular.module 'sociallinkApp'
   #   socket.syncUpdates 'link', $scope.awesomeLinks
 
   $scope.removeLink = (service) ->
-    $http.delete '/api/links/' + service._id
+    $http.delete('/api/links/' + service._id)
+      .success (data, status) ->
+        service.userhas = false
+        service.updateurl = undefined
+        service.url = service.baseurl
 
   $scope.init = ->
     $http.get '/api/services'
@@ -29,6 +33,7 @@ angular.module 'sociallinkApp'
       findedlinks =  _.find($scope.userlinks, (lnk) ->
         return lnk.name is $scope.userservices[i].name
         )
+      baseUrl = $scope.userservices[i].url
       if (findedlinks)
         $scope.userservices[i] = findedlinks
         $scope.userservices[i].userhas = true
@@ -37,6 +42,7 @@ angular.module 'sociallinkApp'
         $scope.userservices[i].userhas = false
         $scope.userservices[i].updateurl = undefined
 
+      $scope.userservices[i].baseurl = baseUrl
       $scope.userservices[i].dropdown = false
       i++
 
@@ -57,7 +63,9 @@ angular.module 'sociallinkApp'
       data:
         data: newService
     .success (data, status) ->
-      console.log data
+      service.userhas = true
+      service.updateurl = "/api/links/u/#{data._id}"
+
 
   $scope.getFocusedClass = (e) ->
     setTimeout ->

@@ -7,7 +7,7 @@
         <h3 class="sl-heading">Your Links</h3>
         <ul class="list-unstyled sl-list">
           <li class="row" ng-repeat="userservice in userservices">
-            <div class="sl-link">
+            <div class="sl-link" ng-class="{userhas: userservice.userhas}">
               <div class="col-lg-3 col-sm-3">
                 <span class="dragholder">
                   <img src="assets/images/draghandle.svg" alt="">

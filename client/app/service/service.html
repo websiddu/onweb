@@ -7,7 +7,7 @@
         <h3 class="sl-heading">Services</h3>
         <div class="clearfix"></div>
 
-        <form ng-submit="addNewService()">
+<!--         <form ng-submit="addNewService()">
           <p class="form-group">
             <label for="">Service Name</label>
             <input required='true' type="text" class="form-control" ng-model="serviceName">
@@ -28,33 +28,58 @@
           <p>
             <button class="btn btn-primary">Submit</button>
           </p>
-        </form>
+        </form> -->
 
         <table class="table">
           <thead>
             <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>icon</th>
-              <th>URL</th>
-              <th>Actions</th>
+              <th style="width:3%">#</th>
+              <th style="width:20%">Name</th>
+              <th style="width:20%">icon</th>
+              <th style="width:40%">URL</th>
+              <th style="width:35%">Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="service in services">
               <td>{{$index + 1}}</td>
-              <td>{{service.name}}</td>
-              <td>{{service.icon}}</td>
-              <td>{{service.url}}</td>
               <td>
-                <button class="btn btn-xs btn-info" ng-click="editService(service._id, $index)"> <em class="icon icon-pencil"></em></button>
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-xs btn-danger" ng-click="removeService(service._id, $index)"> <em class="icon icon-remove"></em></button>
+                <span editable-text="service.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, service._id)" e-required>
+                  {{ service.name || 'empty' }}
+                </span>
               </td>
+              <td>
+                <span editable-text="service.icon" e-name="icon" e-form="rowform" onbeforesave="checkIcon($data, service._id)" e-required>
+                  {{ service.icon || 'empty' }}
+                </span>
+              </td>
+              <td>
+                <span editable-text="service.url" e-name="url" e-form="rowform" onbeforesave="checkURL($data, service._id)" e-required>
+                  {{ service.url || 'empty' }}
+                </span>
+              </td>
+
+          <td style="white-space: nowrap">
+                  <!-- form -->
+                  <form editable-form name="rowform" onbeforesave="saveService($data, service._id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="newSer == service">
+                    <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-success btn-xs">
+                      <em class="icon icon-checkmark"></em>
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-info btn-xs">
+                      –
+                    </button>
+                  </form>
+                  <div class="buttons" ng-show="!rowform.$visible">
+                    <button class="btn btn-xs btn-info" ng-click="rowform.$show()"> <em class="icon icon-pencil"></em></button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-xs btn-danger" ng-click="removeService($index, service._id)"> <em class="icon icon-remove"></em></button>
+                  </div>
+                </td>
             </tr>
           </tbody>
         </table>
-
+        <button class="btn btn-info btn-xs" ng-click="addNewService()">Add service</button>
       </div>
     </div>
   </div>
