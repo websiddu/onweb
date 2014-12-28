@@ -1,5 +1,6 @@
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
+var gravatar = require('gravatar');
 
 exports.setup = function (User, config) {
   passport.use(new FacebookStrategy({
@@ -8,6 +9,8 @@ exports.setup = function (User, config) {
       callbackURL: config.facebook.callbackURL
     },
     function(accessToken, refreshToken, profile, done) {
+      console.log(profile)
+
       User.findOne({
         'facebook.id': profile.id
       },
@@ -16,13 +19,16 @@ exports.setup = function (User, config) {
           return done(err);
         }
         if (!user) {
+          profileJSON = profile._json;
+          profileJSON.picture = gravatar.url(profile.emails[0].value, {s: '200', r: 'pg', d: '404'});
+
           user = new User({
             name: profile.displayName,
             email: profile.emails[0].value,
             role: 'user',
             username: profile.username,
             provider: 'facebook',
-            facebook: profile._json
+            facebook: profileJSON
           });
           user.save(function(err) {
             if (err) done(err);
