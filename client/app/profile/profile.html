@@ -14,13 +14,11 @@
         <div class="clearfix"></div>
         <div class="profile-links">
           <ul class="list-unstyled profile-links-list">
-            <li> <a href=""> <em class="icon icon-facebook"></em></a></li>
-            <li> <a href=""> <em class="icon icon-twitter"></em></a></li>
-            <li> <a href=""> <em class="icon icon-github"></em></a></li>
-            <li> <a href=""> <em class="icon icon-linkedin"></em></a></li>
+            <li ng-repeat="link in userLinks">
+              <a ng-href="{{link.url}}"> <em class="icon icon-{{link.icon}}"></em></a>
+            </li>
           </ul>
         </div>
-
       </div>
     </div>
   </div>
