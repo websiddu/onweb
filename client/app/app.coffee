@@ -9,6 +9,7 @@ angular.module 'sociallinkApp', [
   'ui.bootstrap'
   'ui.select2'
   'xeditable'
+  'ui.sortable'
 ]
 .config ($routeProvider, $locationProvider, $httpProvider) ->
   $routeProvider
