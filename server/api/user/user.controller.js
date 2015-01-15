@@ -36,7 +36,6 @@ exports.create = function (req, res, next) {
 
 exports.links = function (req, res, next) {
   var userId = req.user._id;
-  console.log(userId)
   User.findOne({
     _id: userId
     }, '-salt -hashedPassword')

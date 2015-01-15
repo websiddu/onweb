@@ -9,7 +9,9 @@ var UserSchema = new Schema({
   name: String,
   user_name: {
     type: String,
-    lowercase: true
+    lowercase: true,
+    unique : true,
+    required : true
   },
   email: { type: String, lowercase: true },
   role: {

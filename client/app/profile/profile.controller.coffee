@@ -8,6 +8,7 @@ angular.module 'sociallinkApp'
   $scope.userLinks = []
 
   $scope.init = ->
+    console.log user
     _loadUserLinks()
 
   _loadUserLinks = ->

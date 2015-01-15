@@ -9,8 +9,6 @@ exports.setup = function (User, config) {
       callbackURL: config.facebook.callbackURL
     },
     function(accessToken, refreshToken, profile, done) {
-      console.log(profile)
-
       User.findOne({
         'facebook.id': profile.id
       },
@@ -24,6 +22,7 @@ exports.setup = function (User, config) {
 
           user = new User({
             name: profile.displayName,
+            user_name: profile.displayName.split(' ').join('-').toLowerCase(),
             email: profile.emails[0].value,
             role: 'user',
             username: profile.username,
